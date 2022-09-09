@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Kill Bill - book by SD",
+    "price": 2500,
+    "imageUrl": "https://picsum.photos/200/306"
+  },
+  {
+    "id": 2,
+    "name": "Smart Water - by CocaCola IN",
+    "price": 1560,
+    "imageUrl": "https://picsum.photos/200/309"
+  },
+  {
+    "id": 3,
+    "name": "Lenovo Gen-10th Laptop -  by Lenovo Logistics IN",
+    "price": 45900,
+    "imageUrl": "https://picsum.photos/200/398"
+  },
+  {
+    "id": 4,
+    "name": "H&M Relaxed Overshirt - by H&M IN",
+    "price": 2500,
+    "imageUrl": "https://picsum.photos/200/300"
+  },
+  {
+    "id": 5,
+    "name": "MacBook Pro - 2020 13'inch - by Apple IN",
+    "price": 129900,
+    "imageUrl": "https://picsum.photos/200/376"
+  },
+  {
+    "id": 6,
+    "name": "Sony Wireless - Headphones - by SonyCorp IN",
+    "price": 3999,
+    "imageUrl": "https://picsum.photos/200/322"
+  }
+]
