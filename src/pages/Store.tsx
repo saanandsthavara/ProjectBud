@@ -1,7 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 export const Store = () => {
   return (
-    <div>Store</div>
-  )
-}
+    <>
+      <div className='container'>
+        <h1>Hello from Store component</h1>
+      </div>
+    </>
+  );
+};
