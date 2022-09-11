@@ -9,8 +9,10 @@ import { NavLink } from 'react-router-dom';
 import ShoppingIcon from '../assets/ShoppingIcon.svg';
 import styles from '../styles/Navbar.module.css';
 import clsx from 'clsx';
+import { useShoppingCart } from '../context/CartContext';
 
 export const Navbar = () => {
+  const { openSideCart, cartQuantity } = useShoppingCart();
   return (
     <>
       <NavbarBoostrap
@@ -36,7 +38,8 @@ export const Navbar = () => {
           </Nav>
           <Button
             className={clsx(`${styles.button}`, 'rounded-circle')}
-            variant='outline-primary'>
+            variant='outline-primary'
+            onClick={openSideCart}>
             <img
               src={ShoppingIcon}
               alt='shoppingIcon'
@@ -49,7 +52,7 @@ export const Navbar = () => {
                 'd-flexjustify-content-center',
                 'align-items-center'
               )}>
-              2
+              {cartQuantity}
             </div>
           </Button>
         </Container>
