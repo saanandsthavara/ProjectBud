@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import { Stack } from 'react-bootstrap';
+import { Button, Stack } from 'react-bootstrap';
 import { useShoppingCart } from '../context/CartContext';
 import storeItems from '../data/store-data.json';
 import styles from '../styles/CartItem.module.css';
@@ -33,8 +33,15 @@ export const CartItem = ({ id, quantity }: CartItemProps) => {
               </span>
             )}
           </div>
-          <div></div>
+          <div className={clsx('muted-text', styles.price)}>{item.price}</div>
         </div>
+        <div>{item.price * quantity}</div>
+        <Button
+          variant='outline-danger'
+          size='sm'
+          onClick={() => removeFromCart(item.id)}>
+          &times;
+        </Button>
       </Stack>
     </>
   );

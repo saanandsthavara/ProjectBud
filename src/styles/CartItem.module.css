@@ -5,6 +5,6 @@
   display: flex;
   align-items: center;
 }
-.quantityNumber{
-  font-size: 0.65rem;
+.quantityNumber,.price{
+  font-size: 10px;
 }
