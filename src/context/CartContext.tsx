@@ -1,4 +1,5 @@
 import React, { createContext, ReactNode, useContext, useState } from 'react';
+import { ShoppingCart } from '../components/ShoppingCart';
 // This component is going to be a react context api where we will be utilising the context api which is used for overcoming the problem of prop drillings in react
 // we will also be utilising the custom hooks in this application
 type ShoppingCartProviderProps = {
@@ -103,6 +104,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         cartQuantity,
       }}>
       {children}
+      <ShoppingCart isOpen={isOpen} />
     </CartContext.Provider>
   );
 }
