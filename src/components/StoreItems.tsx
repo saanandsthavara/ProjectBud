@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import React from 'react';
 import { Button, Card } from 'react-bootstrap';
+import { useShoppingCart } from '../context/CartContext';
 import styles from '../styles/StoreItems.module.css';
 
 type StoreItemsProps = {
@@ -11,8 +11,14 @@ type StoreItemsProps = {
 };
 
 export const StoreItems = ({ id, name, price, imageUrl }: StoreItemsProps) => {
-  // declaring hard-coded value as of now
-  const quantity = 0;
+  const {
+    getItemQuantity,
+    increaseCartQuantity,
+    decreaseCartQuantity,
+    removeFromCart,
+  } = useShoppingCart();
+  const quantity = getItemQuantity(id);
+  console.log(quantity);
   return (
     <>
       <Card className='h-100'>
@@ -31,7 +37,8 @@ export const StoreItems = ({ id, name, price, imageUrl }: StoreItemsProps) => {
             {quantity === 0 ? (
               <Button
                 variant='primary'
-                className='w-100'>
+                className='w-100'
+                onClick={() => increaseCartQuantity(id)}>
                 + Add to Cart
               </Button>
             ) : (
@@ -49,15 +56,16 @@ export const StoreItems = ({ id, name, price, imageUrl }: StoreItemsProps) => {
                     'align-items-center',
                     'justify-content-center'
                   )}>
-                  <Button>-</Button>
+                  <Button onClick={() => decreaseCartQuantity(id)}>-</Button>
                   <div>
                     <span className='fs-3'>{quantity}</span> in Cart
                   </div>
-                  <Button>+</Button>
+                  <Button onClick={() => increaseCartQuantity(id)}>+</Button>
                 </div>
                 <Button
                   variant='danger'
-                  size='sm'>
+                  size='sm'
+                  onClick={() => removeFromCart(id)}>
                   Remove Items
                 </Button>
               </div>
