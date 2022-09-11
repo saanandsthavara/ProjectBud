@@ -2,6 +2,8 @@ import React from 'react';
 import { Offcanvas, Stack } from 'react-bootstrap';
 import { useShoppingCart } from '../context/CartContext';
 import { CartItem } from './CartItem';
+import { StoreItems } from './StoreItems';
+import storeItems from '../data/store-data.json';
 
 type ShoppingCartProps = {
   isOpen: boolean;
@@ -24,6 +26,13 @@ export const ShoppingCart = ({ isOpen }: ShoppingCartProps) => {
                 {...item}
               />
             ))}
+            <div className='ms-auto fw-bold fs-5'>
+              Total INR :{' '}
+              {cartItems.reduce((total, cartItem) => {
+                const item = storeItems.find((i) => i.id === cartItem.id);
+                return total + (item?.price || 0) * cartItem.quantity;
+              }, 0)}
+            </div>
           </Stack>
         </Offcanvas.Body>
       </Offcanvas>
